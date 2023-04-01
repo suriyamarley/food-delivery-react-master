@@ -9,8 +9,9 @@ let cartData = [];
 function ItemCard({ itemId, imgSrc, name, price, ratings }) {
   const [currentValue, setCurrentValue] = useState(Math.floor(ratings));
   const [isFavourite, setFavourite] = useState(false);
-  const [ dispatch] = useStateValue();
+  const [{cart}, dispatch] = useStateValue();
   const [isCart, setCart] = useState(null);
+  console.log(cart);
 
   useEffect(() => {
     if (isCart) {
@@ -19,7 +20,7 @@ function ItemCard({ itemId, imgSrc, name, price, ratings }) {
         type: actionType.SET_CART,
         cart: cartData,
       });
-    }
+    };// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCart]);// eslint-disable-next-line react-hooks/exhaustive-deps
 
   const handleClick = (value) => {
