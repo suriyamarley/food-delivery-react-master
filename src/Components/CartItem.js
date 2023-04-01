@@ -11,8 +11,8 @@ function CartItem({ itemId, name, imgSrc, price }) {
 
   useEffect(() => {
     cartItems = cart;
-    setItemPrice(parseInt(qty) * parseFloat(price));
-  }, [qty]);// eslint-disable-next-line react-hooks/exhaustive-deps
+    setItemPrice(parseInt(qty) * parseFloat(price));// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [qty,cart]);// eslint-disable-next-line react-hooks/exhaustive-deps
 
   const updateQty = (action, id) => {
     if (action === "add") {
