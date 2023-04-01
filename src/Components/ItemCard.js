@@ -9,7 +9,7 @@ let cartData = [];
 function ItemCard({ itemId, imgSrc, name, price, ratings }) {
   const [currentValue, setCurrentValue] = useState(Math.floor(ratings));
   const [isFavourite, setFavourite] = useState(false);
-  const [{}, dispatch] = useStateValue();
+  const [ dispatch] = useStateValue();
   const [isCart, setCart] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function ItemCard({ itemId, imgSrc, name, price, ratings }) {
         cart: cartData,
       });
     }
-  }, [isCart]);
+  }, [isCart]);// eslint-disable-next-line react-hooks/exhaustive-deps
 
   const handleClick = (value) => {
     setCurrentValue(value);
